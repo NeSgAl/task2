@@ -1,0 +1,19 @@
+name: 'Telegram Issue Notification'
+on:
+  issues:
+    types: [opened]
+
+jobs:
+  notify:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Send Telegram Notification
+      uses: appleboy/telegram-action@master
+      with:
+        to: ${{ secrets.TELEGRAM_CHAT_ID }}
+        token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        message: |
+        📢 Новый Issue в репозитории ${{ github.repository }}!
+        Автор: ${{ github.actor }}
+        Заголовок: ${{ github.event.issue.title }}
+        Ссылка: ${{ github.event.issue.html_url }}
