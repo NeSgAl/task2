@@ -1,0 +1,52 @@
+{
+    "tasks": [
+        {
+            "label": "Полная сборка и конвертация",
+            "type": "shell",
+            "command": "echo",
+            "args": ["Полная сборка и конвертация выполнена"],
+            "dependsOrder": "sequence",
+            "dependsOn": ["Конвертация в 1251", "C/C++: cl.exe сборка активного файла", "Конвертация в UTF-8"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "Конвертация в 1251",
+            "type": "shell",
+            "command": "python",
+            "args": ["convert-to-1251.py", "${file}"],
+            "problemMatcher": []
+        },
+        {
+            "type": "cppbuild",
+            "label": "C/C++: cl.exe сборка активного файла",
+            "command": "cl.exe",
+            "args": [
+                "/Zi",
+                "/EHsc",
+                "/nologo",
+                "/Fe${fileDirname}\\${fileBasenameNoExtension}.exe",
+                "${file}"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": ["$msCompile"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Задача создана отладчиком."
+        },
+        {
+            "label": "Конвертация в UTF-8",
+            "type": "shell",
+            "command": "python",
+            "args": ["convert-to-utf8.py", "${file}"],
+            "problemMatcher": []
+        }
+    ],
+    "version": "2.0.0"
+}
