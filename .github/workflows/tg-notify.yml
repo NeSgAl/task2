@@ -13,7 +13,7 @@ jobs:
         to: ${{ secrets.TELEGRAM_CHAT_ID }}
         token: ${{ secrets.TELEGRAM_BOT_TOKEN }}
         message: |
-        📢 Новый Issue в репозитории ${{ github.repository }}!
-        Автор: ${{ github.actor }}
-        Заголовок: ${{ github.event.issue.title }}
-        Ссылка: ${{ github.event.issue.html_url }}
+          📢 Новый Issue в репозитории ${{ github.repository }}!
+          Автор: ${{ github.actor }}
+          Заголовок: ${{ github.event.issue.title }}
+          Ссылка: ${{ github.event.issue.html_url }}
