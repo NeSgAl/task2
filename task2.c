@@ -71,35 +71,34 @@ void c2f() {
 }
 
 void calc() {
-    int zn;
-    int zna;
+    float zn;
+    float zna;
     int i;
+    printf("Введите первое значение:\n");
+    scanf("%f", &zn);
     printf("Введите номер операции: 1.+ 2.- 3.* 4.// \n");
     scanf("%d", &i);
-    printf("Введите первое значение:\n");
-    scanf("%d", &zn);
     printf("Введите второе значение:\n"); 
-    scanf("%d", &zna); 
-    
+    scanf("%f", &zna); 
     if (i == 1)
     {
-        printf("%d + %d = %d", zn, zna, zn + zna);
+        printf("%f + %f = %.2f", zn, zna, zn + zna);
     }
     else if (i == 2)
     {
-        printf("%d - %d = %d", zn, zna, zn - zna);
+        printf("%f - %f = %.2f", zn, zna, zn - zna);
     }
     else if (i == 3)
     {
-        printf("%d * %d = %d", zn, zna, zn * zna);
+        printf("%f * %f = %.2f", zn, zna, zn * zna);
     }
-    else if (((i >= 4) && (zna == 0)) || ((i<=1) && (zna == 0)))
+    else if (((i >= 4) && (zna == 0)) || ((i<1) && (zna == 0)))
     {
         printf("Ошибка\n");
     }
     else
     {
-        printf("%d / %d = %d", zn, zna, zn / zna);
+        printf("%f / %f = %.2f", zn, zna, zn / zna);
     }
     
 }
